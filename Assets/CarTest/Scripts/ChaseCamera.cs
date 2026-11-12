@@ -1,0 +1,2 @@
+using UnityEngine;
+namespace CarTest { public sealed class ChaseCamera : MonoBehaviour { public Transform Target {get;set;} Vector3 offset=new Vector3(0,5.2f,-9);float smooth=7;void LateUpdate(){if(Target==null)return;Vector3 desired=Target.position+Target.TransformDirection(offset);transform.position=Vector3.Lerp(transform.position,desired,1-Mathf.Exp(-smooth*Time.deltaTime));transform.LookAt(Target.position+Vector3.up*.8f);} } }
